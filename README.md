@@ -4,11 +4,11 @@ This project analyzes a used car dataset to uncover the key factors affecting re
 # Business Problem
 The used car market consists of vehicles with different prices influenced by several factors such as brand, manufacturing year, fuel type, ownership history, seller type, and kilometers driven.
 
-This project answers important business questions, including:
-Which brands dominate the used car market?
-Which brands have the highest resale value?
-What are the most and least expensive cars?
-Which seller type lists the most vehicles?
+This project answers important business questions, including:  
+Which brands dominate the used car market?  
+Which brands have the highest resale value?  
+What are the most and least expensive cars?  
+Which seller type lists the most vehicles?  
 How does vehicle age influence resale prices?
 
 # Tools & Technologies
