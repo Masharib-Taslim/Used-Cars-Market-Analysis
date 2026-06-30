@@ -1,0 +1,25 @@
+# load Dataset
+import pandas as pd
+df= pd.read_csv("E:/Databases/Used Car Details.csv")
+
+# Basic Data Exploration
+df.head()
+df.info()
+df.shape
+df.describe()
+
+# Check Missing Values
+df.isnull().sum()
+
+# Check Duplicate Values
+df.duplicated().sum()
+
+#Remove Duplicate values
+df.drop_duplicates(inplace=True)
+
+# Insert two additional column to get Vehicle age and Brand name
+df['Vehicle_age']=2026-df['year']
+df['Brand_name']= df['name'].str.split().str[0]
+
+# Exort cleaned data
+df.to_csv("E:/Databases/Cleaned Used Car Details.csv")
