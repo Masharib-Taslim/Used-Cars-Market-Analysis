@@ -1,0 +1,51 @@
+Create database used_cars_details;
+Use used_cars_details;
+
+select * from used_cars;
+describe used_cars;
+
+# Remove unneccesary column
+Alter table used_cars drop column MyUnknownColumn;
+
+# Total numbers of cars uploaded for selling
+select count(*) from used_cars;
+
+# How many brands are available?
+select count(distinct(brand_name)) from used_cars;
+select distinct(brand_name) from used_cars;
+
+# Average Selling Price
+select avg(selling_price) from used_cars;
+
+# Least expensive and most expensive Cars 
+(select name, year, selling_price, 'Least Expensive' As Status from used_cars order by selling_price asc limit 1) union (select name, year, selling_price, 'Most Expensive' from used_cars order by selling_price desc limit 1) ;
+
+# Top 10 most expensive cars
+select * from used_cars order by selling_price desc limit 10;
+
+# Which brand has more cars
+select brand_name, count(*) Total_cars from used_cars group by brand_name order by Total_cars desc;
+
+# Which seller sells the most cars
+select seller_type, count(seller_type) from used_cars group by seller_type;
+
+# Which fuel type is most popular?
+SELECT fuel, COUNT(*) total FROM used_cars GROUP BY fuel ORDER BY total DESC;
+
+# Which fuel type has the highest resale value?
+SELECT fuel, ROUND(AVG(selling_price),2) avg_price FROM used_cars GROUP BY fuel ORDER BY avg_price DESC;
+
+# Average price by owner
+SELECT owner, ROUND(AVG(selling_price),2) avg_price FROM used_cars GROUP BY owner ORDER BY avg_price DESC;
+
+# Average age of cars
+SELECT ROUND(AVG(vehicle_age),2) avg_age FROM used_cars;
+
+# Highest mileage cars
+SELECT * FROM used_cars ORDER BY km_driven DESC LIMIT 10;
+
+# Top 10 brands by average resale price
+SELECT brand_name, ROUND(AVG(selling_price),2) avg_price FROM used_cars GROUP BY brand_name ORDER BY avg_price DESC LIMIT 10;
+
+# Top 10 brands by sales volume
+SELECT brand_name, COUNT(*) total FROM used_cars GROUP BY brand_name ORDER BY total DESC LIMIT 10;
